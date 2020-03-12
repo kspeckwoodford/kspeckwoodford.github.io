@@ -1,0 +1,65 @@
+* {
+  font-family: "Martel", serif;
+}
+
+p{
+  font-size:90%;
+}
+
+.wrapper{
+  position:relative;
+  width:100%;
+  height:100%;
+  height:auto;
+  text-align:center;
+}
+
+.mainContent{
+  padding-top:18px;
+  max-width:300px;
+  margin:0 auto;
+}
+
+.controls {
+  width:100%;
+  text-align:center;
+  margin:auto auto 48px auto;
+  position:fixed;
+  bottom:0px;
+
+}
+
+.controls li:not(:last-child){
+  margin-bottom:18px;
+}
+
+.audio-button {
+  width:300px;
+  height:75px;
+  color:#000;
+  background-size:90%;
+  border:double 8px #fff!important;
+}
+
+.fa--lg {
+  font-size:200%!important;
+}
+
+.audio-button--sweet {
+  background-image:url('1.jpeg')!important;
+}
+
+.audio-button--bitter {
+  background-image:url('2.jpeg')!important;
+  color:#fff;
+}
+
+.audio-button--dry {
+  background-image:url('3.jpeg')!important;
+}
+
+@media (min-width: 48em) {
+  .mainContent{
+    max-width:500px;
+  }
+}

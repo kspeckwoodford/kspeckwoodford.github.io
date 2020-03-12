@@ -1,74 +1,36 @@
 <!doctype HTML>
 
 <head>
-  <title>  </title>
+  <title>Woodford Manhattan Sonic Experience</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Martel&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
-  <style type="text/css">
-    .wrapper{
-      position:relative;
-      width:100%;
-      height:100%;
-      height:auto;
-      // padding-top:25%;
-      text-align:center;
-    }
-
-    .controls {
-      width:100%;
-      text-align:center;
-      margin:auto auto 48px auto;
-      position:fixed;
-      bottom:0px;
-
-    }
-
-    .controls li:not(:last-child){
-      margin-bottom:24px;
-    }
-
-    .audio-button {
-      width:350px;
-      height:125px;
-      color:#fff;
-      background-size:75%;
-    }
-
-    .fa--lg {
-      font-size:250%!important;
-    }
-
-    .audio-button--sweet {
-      background-image:url('1.jpeg')!important;
-    }
-
-    .audio-button--bitter {
-      background-image:url('2.jpeg')!important;
-    }
-
-    .audio-button--dry {
-      background-image:url('3.jpeg')!important;
-    }
-  </style>
-<script src="https://kit.fontawesome.com/3da53f552d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/3da53f552d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div class="wrapper">
+    <div id="textBlock" class="mainContent">
+      <h1>Lorem Ipsum</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </div>
 
     <ul class="controls pure-menu-list">
       <li class="pure-menu-item">
         <button id="soundBtn0" class="button-xlarge pure-button  audio-button audio-button--sweet" data-sound=1>
-          <i class="fa  fas fa-play  fa--lg"></i>
+          <i class="far fa-play-circle  fa--lg"></i>
         </button>
       </li>
       <li class="pure-menu-item">
         <button id="soundBtn1" class="button-xlarge pure-button  audio-button audio-button--bitter" data-sound=2>
-          <i class="fas fa-play  fa--lg"></i>
+          <i class="far fa-play-circle  fa--lg"></i>
         </button>
       </li>
       <li class="pure-menu-item">
         <button id="soundBtn2" class="button-xlarge pure-button audio-button audio-button--dry" data-sound=3>
-          <i class="fas fa-play  fa--lg"></i>
+          <i class="far fa-play-circle  fa--lg"></i>
         </button>
       </li>
     </ul>
@@ -87,6 +49,14 @@
   </audio>
 
   <script>
+
+    var blurbs = [
+      "<h1>Lorem Ipsum</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+      "<h1>Sweet</h1><p>Something about sweet.</p>",
+      "<h1>Bitter</h1><p>Something about bitter.</p>",
+      "<h1>Dry</h1><p>Something about dry.</p>",
+    ];
+
     var sound1 = document.getElementById("sound1");
     var sound2 = document.getElementById("sound2");
     var sound3 = document.getElementById("sound3");
@@ -118,8 +88,8 @@
         {
           sounds[i].pause();
           sounds[i].currentTime=0;
-          document.getElementById('soundBtn'+i).getElementsByTagName('i')[0].classList.remove('fa-stop');
-          document.getElementById('soundBtn'+i).getElementsByTagName('i')[0].classList.add('fa-play');
+          document.getElementById('soundBtn'+i).getElementsByTagName('i')[0].classList.remove('fa-stop-circle');
+          document.getElementById('soundBtn'+i).getElementsByTagName('i')[0].classList.add('fa-play-circle');
         }
       }
 
@@ -127,15 +97,17 @@
       if (sound.paused)
       {
         sound.play();
-        button.getElementsByTagName('i')[0].classList.remove('fa-play');
-        button.getElementsByTagName('i')[0].classList.add('fa-stop');
+        button.getElementsByTagName('i')[0].classList.remove('fa-play-circle');
+        button.getElementsByTagName('i')[0].classList.add('fa-stop-circle');
+        document.getElementById('textBlock').innerHTML = blurbs[button.dataset.sound];
       }
       else
       {
         sound.pause();
         sound.currentTime=0;
-        button.getElementsByTagName('i')[0].classList.remove('fa-stop');
-        button.getElementsByTagName('i')[0].classList.add('fa-play');
+        button.getElementsByTagName('i')[0].classList.remove('fa-stop-circle');
+        button.getElementsByTagName('i')[0].classList.add('fa-play-circle');
+        document.getElementById('textBlock').innerHTML = blurbs[0];
       }
 
     }
