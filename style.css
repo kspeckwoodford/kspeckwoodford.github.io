@@ -2,8 +2,13 @@
   font-family: "Martel", serif;
 }
 
+h1 {
+  margin-block-end:0em;
+}
+
 p{
-  font-size:80%;
+  font-size:85%;
+  margin-block-start:0em;
 }
 
 .wrapper{
